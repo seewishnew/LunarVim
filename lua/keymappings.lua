@@ -52,6 +52,7 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- vim.cmd('inoremap <expr> <TAB> (\"\\<C-n>\")')
 -- vim.cmd('inoremap <expr> <S-TAB> (\"\\<C-p>\")')
 
+vim.cmd('noremap <expr> tsp :terminal<CR>')
 -- vim.api.nvim_set_keymap('i', '<C-TAB>', 'compe#complete()', {noremap = true, silent = true, expr = true})
 
 -- vim.cmd([[
@@ -60,3 +61,31 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- map <leader>n <Plug>(miniyank-cycle)
 -- map <leader>N <Plug>(miniyank-cycleback)
 -- ]])
+
+-- From old custom nvim key maps
+vim.cmd('nnoremap <Leader>o o<Esc>^Da')
+vim.cmd('nnoremap <Leader>O O<Esc>^Da')
+
+vim.cmd('nnoremap <Leader>t :FloatermNew<CR>')
+
+-- Refreshing and editing init.vim
+vim.cmd('nnoremap <Leader>i :luafile $HOME/.config/nvim/init.lua<cr>')
+vim.cmd('nnoremap <Leader>ei :tabedit $HOME/.config/nvim/init.lua<CR>')
+
+-- tabedit shortcuts
+vim.cmd('nnoremap <Leader>nnt :tabedit %<CR>')
+vim.cmd('nnoremap <Leader>nt :tabedit ')
+
+-- vsp shortcuts
+vim.cmd('nnoremap vvsp :vsp %<CR>')
+
+-- sp shortcuts
+vim.cmd('nnoremap tsp :sp<CR>:terminal<CR>a')
+
+-- Open in new tab
+vim.cmd('nnoremap gff <C-w>gf')
+
+
+-- Add lines below current line and still remain in normal mode 
+vim.cmd('nnoremap <silent> <leader>oo :<C-u>call append(line("."),   repeat([""], v:count1))<CR>')
+vim.cmd('nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>')
